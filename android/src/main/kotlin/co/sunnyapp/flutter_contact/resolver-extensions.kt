@@ -34,7 +34,7 @@ fun ContentResolver.queryContacts(query: String? = null, sortBy: String? = null,
 
   val projections = if (forCount) contactProjectionsIdOnly else contactProjections
   if (query != null) {
-    selectionArgs = arrayOf("$query%")
+    selectionArgs = arrayOf("%$query%")
     selection = "${ContactsContract.Contacts.DISPLAY_NAME_PRIMARY} LIKE ?"
   }
 
